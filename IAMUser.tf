@@ -3,12 +3,12 @@ resource "google_project_iam_policy" "project" {
   policy_data = data.google_iam_policy.admin.policy_data
 }
 
-data "google_iam_policy" "admin" {
+data "google_iam_policy" "users" {
   binding {
-    role = "roles/editor"
+    role = "viewer"
 
     members = [
-      "user:example@income.com",
+      "user:example@income.com.sg",
     ]
   }
 }

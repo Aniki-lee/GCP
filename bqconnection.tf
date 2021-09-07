@@ -16,7 +16,7 @@ resource "google_sql_database" "db" {
     name     = "db"
 }
 
-resource "random_password" "pwd" {
+resource "password" "pwd" {
     length = ""
     special = ""
 }
@@ -25,7 +25,7 @@ resource "google_sql_user" "user" {
     provider = google
     name = "user"
     instance = google_sql_database_instance.instance.name
-    password = random_password.pwd.result
+    password = password.pwd.result
 }
 
 resource "google_bigquery_connection" "connection" {
